@@ -1,0 +1,53 @@
+
+    <button type="button" class="btn btn-primary" (click)="mostrarModalAlumno(content)"><i
+            class="fa-solid fa-calendar-plus"></i> Agregar</button>
+
+
+
+<table class="table">
+    <thead>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Carrera</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let alumno of alumnos.data; index as i ">
+            <td scope="row">{{alumno.id}}</td>
+            <td scope="row">{{alumno.nombre}}</td>
+            <td scope="row">{{alumno.edad}}</td>
+            <td scope="row">{{alumno.fecha}}</td>
+            <td scope="row">{{alumno.carrera}}</td>
+            <td scope="row"><button class="btn btn-warning" (click)="editarAlumno(content,i)">Editar</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Alumno</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <label class="form-label" for="nombre">Nombre</label>
+            <input class="form-control" type="text" name="nombre" id="nombre" [(ngModel)]="alumno.nombre">
+
+            <label class="form-label" for="edad">Edad</label>
+            <input class="form-control" type="number" name="edad" id="edad" [(ngModel)]="alumno.edad">
+
+            <label class="form-label" for="fecha">Fecha</label>
+            <input class="form-control" type="date" name="fecha" id="fecha" [(ngModel)]="alumno.fecha">
+
+            <label class="form-label" for="carrera">Carrera</label>
+            <input class="form-control" type="text" name="carrera" id="carrera" [(ngModel)]="alumno.carrera">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-arrow-left"></i>
+            Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="agregar()"><i class="fa-solid fa-database"></i> Guardar</button>
+    </div>
+</ng-template>
