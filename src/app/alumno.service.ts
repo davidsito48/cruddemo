@@ -19,4 +19,8 @@ export class AlumnoService {
   editar(alumno:any){
     return this.httpClient.put('http://localhost:3000/alumno',alumno);
   }
+
+  eliminar(alumno:any){
+    return this.httpClient.delete('http://localhost:3000/alumno/'+alumno.id,alumno);
+  }
 }

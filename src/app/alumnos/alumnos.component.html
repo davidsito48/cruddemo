@@ -21,7 +21,7 @@
             <td scope="row">{{alumno.fecha}}</td>
             <td scope="row">{{alumno.carrera}}</td>
             <td scope="row"><button class="btn btn-warning" (click)="editarAlumno(content,i)">Editar</button></td>
-            <td scope="row"><button class="btn btn-danger" (click)="eliminarAlumno()">Eliminar</button></td>
+            <td scope="row"><button class="btn btn-danger" (click)="eliminarAlumno(alumno)">Eliminar</button></td>
         </tr>
     </tbody>
 </table>

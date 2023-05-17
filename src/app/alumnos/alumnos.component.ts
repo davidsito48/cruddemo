@@ -70,8 +70,10 @@ export class AlumnosComponent {
     this.mostrarModalAlumno(content);
   }
 
-  eliminarAlumno() {
-
+  eliminarAlumno(alumno:any) {
+    this.alumnoService.eliminar(alumno).subscribe((data)=>{
+      this.getAlumnos();
+    })
   }
 
 }
