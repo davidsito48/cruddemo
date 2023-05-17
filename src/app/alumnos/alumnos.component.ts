@@ -14,7 +14,7 @@ export class AlumnosComponent {
   public alumnos: any;
 
   alumno = {
-    id:"",
+    id: "",
     nombre: "",
     edad: "",
     fecha: "",
@@ -32,17 +32,26 @@ export class AlumnosComponent {
   }
 
   agregar() {
-    if (this.alumno.id == null) {
-      this.alumnoService.agregar(this.alumno).subscribe(data => {
-        this.getAlumnos();
-        this.modalService.dismissAll();
-      })
-    }else{
-      this.alumnoService.editar(this.alumno).subscribe(data => {
-        this.getAlumnos();
-        this.modalService.dismissAll();
-      })
-    }
+    this.alumno.id="0";
+    this.alumnoService.agregar(this.alumno).subscribe(data => {
+      this.getAlumnos();
+      this.modalService.dismissAll();
+    })
+
+    this.alumno.id = "";
+    this.alumno.nombre = "";
+    this.alumno.edad = "";
+    this.alumno.fecha = "";
+    this.alumno.carrera = "";
+  }
+
+  editar() {
+
+    this.alumnoService.editar(this.alumno).subscribe(data => {
+      this.getAlumnos();
+      this.modalService.dismissAll();
+    })
+
     this.alumno.id = "";
     this.alumno.nombre = "";
     this.alumno.edad = "";
@@ -59,6 +68,10 @@ export class AlumnosComponent {
   editarAlumno(content: any, pos: number) {
     this.alumno = this.alumnos.data[pos];
     this.mostrarModalAlumno(content);
+  }
+
+  eliminarAlumno() {
+
   }
 
 }

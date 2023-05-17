@@ -21,6 +21,7 @@
             <td scope="row">{{alumno.fecha}}</td>
             <td scope="row">{{alumno.carrera}}</td>
             <td scope="row"><button class="btn btn-warning" (click)="editarAlumno(content,i)">Editar</button></td>
+            <td scope="row"><button class="btn btn-danger" (click)="eliminarAlumno()">Eliminar</button></td>
         </tr>
     </tbody>
 </table>
@@ -46,8 +47,8 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-arrow-left"></i>
-            Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="agregar()"><i class="fa-solid fa-database"></i> Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-arrow-left"></i>Cerrar</button>
+        <button type="button" class="btn btn-success" (click)="agregar()"><i class="fa-solid fa-database"></i> Guardar</button>
+        <button type="button" class="btn btn-primary" (click)="editar()"><i class="fa-solid fa-database"></i> Editar</button>
     </div>
 </ng-template>
